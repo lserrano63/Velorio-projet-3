@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Velorio</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+	<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+	<script src ="https://kit.fontawesome.com/f42ba57ba1.js" crossorigin="anonymous"></script>
+	<link rel="shortcut icon" type="image/png" href="pics/logo.png">
+</head>
+
+<body>
+	<!-- Header -->
+	<header>
+		<img src="pics/logo.png" alt="Logo du site!">
+		<h1>Location de vélos en ligne sur Lyon</h1>
+	</header>
+	<!-- Slider -->
+	<section id="slider">
+		<div id="slider_all_images">
+			<figure class="slider_image">
+				<img src="pics/logo.png">
+				<figcaption>Bienvenue sur le site de Vélorio !</figcaption>
+			</figure>
+			<figure class="slider_image not_visible">
+				<img src="pics/2.png">
+				<figcaption>Etape 1: Trouvez votre station !</figcaption>
+			</figure>
+			<figure class="slider_image not_visible">
+				<img src="pics/3.png">
+				<figcaption>Etape 2: Informez-vous sur la <br/>station puis réservez votre Vélo</figcaption>
+			</figure>
+			<figure class="slider_image not_visible">
+				<img src="pics/4.png">
+				<figcaption>Etape 3: Signez</figcaption>
+			</figure>
+			<figure class="slider_image not_visible">
+				<img src="pics/5.png">
+				<figcaption>Votre vélo est réservé !</figcaption>
+			</figure>
+		</div>
+		
+		<div id="slider_buttons">
+			<button id="button_left"><i class="fas fa-arrow-circle-left fa-3x"></i></button>
+			<button id="button_right"><i class="fas fa-arrow-circle-right fa-3x"></i></button>
+			<button id="button_pause"><i class="fas fa-pause-circle fa-3x"></i></button>
+			<button id="button_play" class="not_visible"><i class="fas fa-play-circle fa-3x"></i></button>
+		</div>
+	</section>
+
+	<!-- Main page with map and asides -->		
+	<section id="main_page">
+		<!-- Map -->
+		<aside id="map">	
+		</aside>
+		<!-- Asides for form canvas and timer -->
+		<section id="aside_cote" >
+			<aside id="section_form" >
+				<h2>Station</h2>
+				<p id="section_form_p">Veuillez sélectionner une station !</p>
+				<h3 id="name_Station"></h3>
+				<p id="status_Station"></p>
+				<p id="adress_Station"></p>
+				<p id="available_bikes"></p>
+				<p id="bike_stands"></p>
+				<form id="form" class="not_visible">
+					<input type="text" id="name" name="name" placeholder="Nom" required>
+					<input type="text" id="firstName" name="firstName" placeholder="Prénom" required>
+					<input type="submit" id="button_submit" value="Réserver">
+				</form>
+			</aside>
+
+			<aside id="section_canvas" class="not_visible">
+				<canvas id="canvas" >Votre navigateur ne supporte pas ce canvas.</canvas>
+				<button id="button_sign" class="not_visible">Signer</button>
+				<button id="button_clean">Nettoyer</button>
+			</aside>
+
+			<aside id="section_reservation" class="not_visible">
+				<h2 id="reservation_h2">Réservation réussie !</h2>
+				<p id="reservation_p">Votre Vélo vous attend à la station <span id="reservation_station"></span> !</p>
+				<p id="timer"></p>
+			</aside>
+		</section>
+	</section>
+
+	<script src="scripts/slider.js"></script>
+	<script src="scripts/reservation.js"></script>
+	<script src="scripts/map_api.js"></script>
+	<script src="scripts/storage.js"></script>
+	<script src="scripts/canvas.js"></script>
+	<script src="scripts/timer.js"></script>
+</body>
+</html>
+
